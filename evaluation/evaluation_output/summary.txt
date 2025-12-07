@@ -1,3 +1,0 @@
-Mean error (m): 11.1917
-Median error (m): 3.0390
-RMSE (m): 42.2014

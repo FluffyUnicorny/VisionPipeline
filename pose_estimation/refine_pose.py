@@ -3,14 +3,20 @@ import numpy as np
 from pathlib import Path
 import sys
 
-sys.path.append(str(Path(__file__).parent.parent))
+# -----------------------------
+# PATH SETUP (✅ สำคัญมาก)
+# -----------------------------
+ROOT = Path(__file__).resolve().parents[1]   # VisionPipeline/
+sys.path.append(str(ROOT))
 
-DATA_IMG_DIR = Path("../data/dataset_kicker/images")
-POINTS3D_FILE = Path("../triangulation/triangulated_points.npy")
-DESCS3D_FILE = Path("../triangulation/triangulated_desc.npy")
-IN_POSE_DIR = Path("output_pose")        # rvec/tvec เดิม
-OUT_POSE_DIR = Path("output_refined_pose")
-OUT_POSE_DIR.mkdir(exist_ok=True)
+DATA_IMG_DIR  = ROOT / "data/dataset_kicker/images"
+POINTS3D_FILE = ROOT / "triangulation/triangulated_points.npy"
+DESCS3D_FILE  = ROOT / "triangulation/triangulated_desc.npy"
+
+IN_POSE_DIR   = ROOT / "pose_estimation/output_pose"
+OUT_POSE_DIR  = ROOT / "pose_estimation/output_refined_pose"
+OUT_POSE_DIR.mkdir(parents=True, exist_ok=True)
+
 
 # โหลด 3D points + descriptors
 points3d = np.load(POINTS3D_FILE)

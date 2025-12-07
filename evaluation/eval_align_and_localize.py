@@ -5,13 +5,18 @@ from pathlib import Path
 # -----------------------------
 # CONFIG
 # -----------------------------
-EST_POINTS_NPY = Path(
-    "../refinement/refinement_output/triangulated_points_refined_filtered.npy"
-)
-GT_PLY = Path("../data/dataset_kicker/ground_truth_scan/scan2.ply")
+ROOT = Path(__file__).resolve().parents[1]   # VisionPipeline/
 
-OUT_DIR = Path("evaluation_output")
-OUT_DIR.mkdir(exist_ok=True)
+EST_POINTS_NPY = (
+    ROOT / "refinement" / "refinement_output" / "triangulated_points_refined_filtered.npy"
+)
+
+GT_PLY = (
+    ROOT / "data" / "dataset_kicker" / "ground_truth_scan" / "scan2.ply"
+)
+
+OUT_DIR = ROOT / "evaluation" / "evaluation_output"
+OUT_DIR.mkdir(parents=True, exist_ok=True)
 
 # -----------------------------
 # Load estimated 3D points

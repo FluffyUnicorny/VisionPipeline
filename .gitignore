@@ -4,3 +4,27 @@ __pycache__/
 *.ply
 *.jpg
 *.png
+
+# Python
+__pycache__/
+*.pyc
+
+# numpy / point cloud
+*.npy
+*.npz
+*.ply
+
+# images (generated outputs only)
+*.jpg
+*.png
+
+# ========= Pipeline outputs =========
+bundle_adjustment/ba_output/
+refinement/refinement_output/
+evaluation/evaluation_output/
+
+# ========= COLMAP =========
+sfm/colmap_output/
+
+# ========= logs / temp =========
+*.log
